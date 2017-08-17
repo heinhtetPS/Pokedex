@@ -5,6 +5,7 @@ import { fetchAllPokemon } from './util/api_util.js';
 import { selectAllPokemon } from './reducers/selectors';
 import configureStore from './store/store';
 import Root from './components/root';
+import { HashRouter, Route } from 'react-router-dom';
 // /Users/appacademy/Desktop/W7D3/Pokedex/frontend/store/store.js
 // /Users/appacademy/Desktop/W7D3/Pokedex/frontend/pokedex.jsx
 

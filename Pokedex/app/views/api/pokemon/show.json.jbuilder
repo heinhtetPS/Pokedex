@@ -1,16 +1,15 @@
 # json do
 
-  json.pokemon do
-    json.extract!(@pokemon, :id, :name, :attack, :defense, :image_url, :moves, :poke_type)
-  end
+json.poke do
+  json.extract!(@pokemon, :id, :name, :attack, :defense, :moves, :poke_type)
+  json.image_url asset_path(@pokemon.image_url)
+  json.item_ids @pokemon.items.pluck(:id)
+end
+
+json.items do
+  json.array!(@pokemon.items)
+end
 
 
 
-  json.items do
-    json.array!(@pokemon.items)
-    #this bottom one overwrites each item with the next
-    # @pokemon.items.each do |item|
-    #   json.extract!(item, :id, :name, :pokemon_id, :price, :happiness, :image_url)
-    # end
-  end
 # end

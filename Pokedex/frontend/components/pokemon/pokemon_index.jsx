@@ -1,5 +1,8 @@
 import React from 'react';
 import { requestAllPokemon } from '../../actions/pokemon_actions';
+import { PokemonIndexItem } from './pokemon_index_item';
+import PokemonDetailContainer from './pokemon_detail_container';
+import { Route } from 'react-router-dom';
 
 
 class PokemonIndex extends React.Component {
@@ -7,28 +10,22 @@ class PokemonIndex extends React.Component {
   constructor (props) {
     super(props);
 
-    // this.props.requestAllPokemon = this.props.requestAllPokemon.bind(this);
   }
 
   componentDidMount () {
-
     this.props.requestAllPokemon();
   }
 
   render () {
-
-    const renderThesePokemon = this.props.pokemon.map(poke => (
-      <div className='pokeList'>
-        <img src={poke.image_url}/>
-        <li key={poke.id}>{ poke.name }</li>
-      </div>
-    ));
+                                                                            //this makes it so children must refer to pokes as pokemon
+    const renderThesePokemon = this.props.pokemon.map(poke => <PokemonIndexItem key={poke.id} pokemon={poke} />);
 
     return (
       <div>
         <ul>
-          { renderThesePokemon }
+          {renderThesePokemon}
         </ul>
+        <Route path="/pokemon/:pokemon_id" component={PokemonDetailContainer}/>
       </div>
     );
 
