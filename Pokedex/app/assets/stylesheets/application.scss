@@ -103,3 +103,14 @@
    text-align: center;
    color: $black;
  }
+ img {
+   width: 20px;
+   height:20px;
+ }
+ li {
+   list-style: none;
+ }
+ .pokeList {
+   display: flex;
+   flex-direction: row;
+ }
